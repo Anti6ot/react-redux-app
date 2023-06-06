@@ -12,8 +12,6 @@ const todosService = {
   },
   createToDo: async (params) => {
     const { data } = await httpService.post(todosEndepoint, params);
-    console.log("createToDo", data);
-
     return data;
   },
 };

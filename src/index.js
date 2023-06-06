@@ -34,7 +34,9 @@ const App = (params) => {
     dispatch(taskDeleted(taskId));
   };
   const createTask = (task) => {
-    dispatch(taskCreated(task));
+    dispatch(
+      taskCreated({ userId: 1, title: "Some New Task", completed: false })
+    );
   };
   if (isLoading) {
     return <h1>Loading</h1>;
@@ -42,15 +44,11 @@ const App = (params) => {
   if (error) {
     return <p>{error}</p>;
   }
-  const newTask = {
-    title: "SDASDSADWQDWDQDWQDQWD",
-    completed: false,
-  };
   return (
     <>
       <h1> App</h1>
       <ul>
-        <button onClick={() => createTask(newTask)}>Create task</button>
+        <button onClick={() => createTask()}>Create task</button>
 
         {state.map((el) => (
           <li key={el.id}>
